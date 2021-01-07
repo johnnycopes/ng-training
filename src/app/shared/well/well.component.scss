@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  background: var(--white);
+  padding: 16px;
+  border-radius: var(--border-radius);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  margin-bottom: 16px;
+}
