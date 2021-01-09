@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.details {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 50% 50%;
+}
+
+.conditions {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.temperature {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.range {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.visual {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  justify-self: center;
+}

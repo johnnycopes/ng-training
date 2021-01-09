@@ -8,9 +8,11 @@
   font-family: var(--font);
   font-size: var(--font-size);
   border-radius: var(--border-radius);
+  cursor: pointer;
 
   &--disabled {
     color: gray;
     background: lightgray;
+    cursor: default;
   }
 }

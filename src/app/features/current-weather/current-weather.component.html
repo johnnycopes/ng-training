@@ -1,3 +1,11 @@
 <app-location-form></app-location-form>
 
 {{zipCodes$ | async}}
+
+<app-location *ngFor="let location of locations"
+  [name]="location.name"
+  [conditions]="location.conditions"
+  [temperature]="location.temperature"
+  [max]="location.max"
+  [min]="location.min"
+></app-location>

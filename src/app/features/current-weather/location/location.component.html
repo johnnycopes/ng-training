@@ -1,0 +1,18 @@
+<app-well
+  [title]="name"
+>
+  <div class="details">
+    <p class="conditions">
+      <em>Current conditions:</em> {{conditions}}
+    </p>
+    <p class="temperature">
+      <em>Temperature:</em> {{temperature}}
+    </p>
+    <p class="range">
+      <em>Max today:</em> {{max}} | <em>Min today:</em> {{min}}
+    </p>
+    <img class="visual"
+      src="https://www.angulartraining.com/images/weather/clouds.png"
+    />
+  </div>
+</app-well>
