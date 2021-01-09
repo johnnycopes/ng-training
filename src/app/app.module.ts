@@ -6,17 +6,17 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { CurrentWeatherComponent } from './features/current-weather/current-weather.component';
 import { ForecastComponent } from './features/forecast/forecast.component';
-import { LocationComponent } from './features/current-weather/location/location.component';
-import { LocationFormComponent } from './features/current-weather/location-form/location-form.component';
+import { LocationComponent } from './features/locations/location/location.component';
+import { LocationsComponent } from './features/locations/locations.component';
+import { LocationFormComponent } from './features/locations/location-form/location-form.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrentWeatherComponent,
     ForecastComponent,
+    LocationsComponent,
     LocationComponent,
     LocationFormComponent,
     PageNotFoundComponent,

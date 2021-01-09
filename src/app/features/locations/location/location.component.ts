@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+
+type WeatherVisual = "sun" | "snow" | "rain" | "clouds";
 
 @Component({
   selector: 'app-location',
@@ -6,7 +8,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./location.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LocationComponent implements OnInit {
+export class LocationComponent {
+  @Input() id: number = -1;
   @Input() name: string = "";
   @Input() temperature: string = "";
   @Input() max: string = "";
@@ -21,14 +24,10 @@ export class LocationComponent implements OnInit {
   }
   public visualSrc: string = "";
   private _conditions: string = "";
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() deleted: EventEmitter<void> = new EventEmitter();
 
   private _getVisualSrc(conditions: string): string {
-    let visual: string = "";
+    let visual: WeatherVisual = "sun";
     switch (conditions.toLowerCase()) {
       case "clouds":
         visual = "clouds";
@@ -39,10 +38,7 @@ export class LocationComponent implements OnInit {
       case "snow":
         visual = "snow";
         break;
-      default:
-        visual = "sun";
     }
     return `https://www.angulartraining.com/images/weather/${visual}.png`;
   }
-
 }

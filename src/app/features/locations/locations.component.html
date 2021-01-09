@@ -1,9 +1,11 @@
 <app-location-form></app-location-form>
 
-<app-location *ngFor="let location of locations$ | async"
+<app-location *ngFor="let location of locations$ | async; trackByFn"
+  [id]="location.id"
   [name]="location.name"
   [conditions]="location.conditions"
   [temperature]="location.temperature"
   [max]="location.max"
   [min]="location.min"
+  (deleted)="onDelete(location.id)"
 ></app-location>

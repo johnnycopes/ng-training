@@ -1,5 +1,6 @@
 <app-well
   [title]="name"
+  (closed)="deleted.emit()"
 >
   <div class="details">
     <p class="conditions">

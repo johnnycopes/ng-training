@@ -29,7 +29,9 @@ export class DataService {
     };
     this._httpService.get<ICurrentWeather>(this._baseUrl, { params }).subscribe(
       data => {
+        console.log(data);
         const location: ILocation = {
+          id: data?.sys?.id ?? -1,
           name: data?.name ?? "",
           conditions: data?.weather?.[0].main ?? "",
           temperature: data?.main?.temp ?? "",
@@ -40,5 +42,12 @@ export class DataService {
         this._locationsSubject$.next([...locations, location]);
       }
     );
+  }
+
+  public deleteLocation(id: number): void {
+    const locations = this._locationsSubject$.value.slice();
+    const indexToDelete = locations.findIndex(location => location.id === id);
+    locations.splice(indexToDelete, 1);
+    this._locationsSubject$.next(locations);
   }
 }
