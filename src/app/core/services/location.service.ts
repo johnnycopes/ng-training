@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay } from "rxjs/operators";
 import { ILocation } from "src/app/shared/models/location.interface";
 import { ApiService } from "./api.service";
+import { CacheService } from "./cache.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,15 @@ export class LocationService {
     );
   }
 
-  constructor(private _dataService: ApiService) {
-    // const locations = localStorage.getItem(localStorageKey);\
-    // this._locationsSubject$.next(locations);
+  constructor(
+    private _apiService: ApiService,
+    private _cacheService: CacheService,
+  ) {
+    this.locations$.subscribe(locations => this._cacheService.setLocations(locations));
   }
 
   public addLocation(zipCode: string): void {
-    this._dataService.fetchLocation(zipCode).subscribe(
+    this._apiService.fetchLocation(zipCode).subscribe(
       location => {
         const locations = this._locationsSubject$.value;
         this._locationsSubject$.next([...locations, location]);

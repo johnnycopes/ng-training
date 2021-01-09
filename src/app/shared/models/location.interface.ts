@@ -5,4 +5,5 @@ export interface ILocation {
   temperature: string;
   max: string;
   min: string;
+  zip: string;
 }

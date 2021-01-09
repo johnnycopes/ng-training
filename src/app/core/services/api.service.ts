@@ -30,7 +30,8 @@ export class ApiService {
             conditions: data?.weather?.[0].main ?? "",
             temperature: data?.main?.temp ?? "",
             max: data?.main?.temp_max ?? "",
-            min: data?.main?.temp_min ?? ""
+            min: data?.main?.temp_min ?? "",
+            zip: zipCode,
           };
         })
       )
