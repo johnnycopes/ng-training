@@ -3,6 +3,7 @@
 <app-location *ngFor="let location of locations$ | async; trackByFn"
   [id]="location.id"
   [name]="location.name"
+  [zipCode]="location.zip"
   [conditions]="location.conditions"
   [temperature]="location.temperature"
   [max]="location.max"

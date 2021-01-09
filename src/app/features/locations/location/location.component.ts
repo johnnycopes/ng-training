@@ -14,6 +14,7 @@ export class LocationComponent {
   @Input() temperature: string = "";
   @Input() max: string = "";
   @Input() min: string = "";
+  @Input() zipCode: string = "";
   @Input()
   set conditions(value: string) {
     this._conditions = value;

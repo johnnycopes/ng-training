@@ -1,7 +1,6 @@
 <div class="top">
-  <h3 class="title">
-    {{title}}
-  </h3>
+  <ng-content select="[top]">
+  </ng-content>
   <button app-button
     *ngIf="canClose"
     class="close"
@@ -11,5 +10,5 @@
   </button>
 </div>
 <div class="container">
-  <ng-content></ng-content>
+  <ng-content select="[container]"></ng-content>
 </div>

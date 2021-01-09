@@ -1,8 +1,15 @@
-<app-well
-  [title]="name"
-  (closed)="deleted.emit()"
->
-  <div class="details">
+<app-well (closed)="deleted.emit()">
+  <h3 top>
+    <a [routerLink]="['/forecast', zipCode]">
+      {{name}}
+      <span class="zip">
+        ({{zipCode}})
+      </span>
+    </a>
+  </h3>
+  <div container
+    class="details"
+  >
     <p class="conditions">
       <em>Current conditions:</em> {{conditions}}
     </p>

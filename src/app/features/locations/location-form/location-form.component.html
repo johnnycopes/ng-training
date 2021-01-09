@@ -1,8 +1,9 @@
-<app-well
-  title="Add a location"
-  [canClose]="false"
->
-  <form #zipCodeForm="ngForm"
+<app-well [canClose]="false">
+  <h3 top>
+    Add a location
+  </h3>
+  <form container
+    #zipCodeForm="ngForm"
     (ngSubmit)="onSubmit(zipCodeForm)"
   >
     <div class="form-group">

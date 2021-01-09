@@ -1,6 +1,9 @@
 <div class="container-fluid">
 
-  <app-well title="Add a location" [canClose]="false">
+  <app-well [canClose]="false">
+    <h3 top>
+      Add a location
+    </h3>
     <label for="zipcode">
       Enter a zipcode:
     </label>
@@ -11,7 +14,8 @@
     </button>
   </app-well>
 
-  <div class="results">
+  <div class="results"
+  >
     <app-well title="Rancho Cordova (95742)">
       <div>
         <h4>Current conditions: Clouds</h4>
