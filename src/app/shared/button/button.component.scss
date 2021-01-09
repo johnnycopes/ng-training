@@ -1,4 +1,4 @@
-:host {
+.button {
   display: inline-block;
   background: var(--pink);
   color: var(--black);
@@ -6,5 +6,11 @@
   border: 0;
   outline: none;
   font-family: var(--font);
+  font-size: var(--font-size);
   border-radius: var(--border-radius);
+
+  &--disabled {
+    color: gray;
+    background: lightgray;
+  }
 }

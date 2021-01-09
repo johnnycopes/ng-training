@@ -1,23 +1,25 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './features/home/home.component';
-import { AppRoutingModule } from './app-routing.module';
+import { CurrentWeatherComponent } from './features/current-weather/current-weather.component';
 import { ForecastComponent } from './features/forecast/forecast.component';
-import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    CurrentWeatherComponent,
     ForecastComponent,
     PageNotFoundComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     SharedModule
   ],
   providers: [],

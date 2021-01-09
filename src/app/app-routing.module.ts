@@ -2,11 +2,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
-import { HomeComponent } from './features/home/home.component';
-import { PageNotFoundComponent } from "./features/page-not-found/page-not-found.component";
+import { CurrentWeatherComponent } from './features/current-weather/current-weather.component';
+import { PageNotFoundComponent } from "./core/page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: CurrentWeatherComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
