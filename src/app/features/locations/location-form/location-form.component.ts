@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { DataService } from "src/app/core/services/data.service";
+import { LocationService } from "src/app/core/services/location.service";
 
 @Component({
   selector: 'app-location-form',
@@ -10,7 +10,7 @@ import { DataService } from "src/app/core/services/data.service";
 export class LocationFormComponent {
   public model: string = "";
 
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: LocationService) { }
 
   public onSubmit(form: NgForm): void {
     const zipCode = form.value.zipCode;

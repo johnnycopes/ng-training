@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from "rxjs";
-import { DataService } from "src/app/core/services/data.service";
+import { LocationService } from "src/app/core/services/location.service";
 import { ILocation } from "src/app/shared/models/location.interface";
 
 @Component({
@@ -9,15 +9,15 @@ import { ILocation } from "src/app/shared/models/location.interface";
   styleUrls: ['./locations.component.scss']
 })
 export class LocationsComponent {
-  public locations$: Observable<ILocation[]> = this._dataService.locations$;
+  public locations$: Observable<ILocation[]> = this._locationService.locations$;
 
-  constructor(private _dataService: DataService) { }
+  constructor(private _locationService: LocationService) { }
 
   public trackByFn(index: number, location: ILocation): number {
     return location.id;
   }
 
   public onDelete(id: number): void {
-    this._dataService.deleteLocation(id);
+    this._locationService.deleteLocation(id);
   }
 }
