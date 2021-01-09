@@ -1,29 +1,3 @@
-<app-well
-  title="Add a location"
-  [canClose]="false"
->
-  <form #zipCodeForm="ngForm"
-    (ngSubmit)="onSubmit(zipCodeForm)"
-  >
-    <div class="form-group">
-      <label class="instructions"
-        for="zipcode"
-      >
-        Enter a zipcode:
-      </label>
-    </div>
-    <div class="form-group">
-      <input class="input"
-        id="zipcode"
-        name="zipCode"
-        required
-        [(ngModel)]="model"
-      />
-      <button app-button
-        [disabled]="!zipCodeForm.form.valid"
-      >
-        Add location
-      </button>
-    </div>
-  </form>
-</app-well>
+<app-location-form></app-location-form>
+
+{{zipCodes$ | async}}

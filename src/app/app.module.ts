@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './features/current-weather/current-weather.component';
 import { ForecastComponent } from './features/forecast/forecast.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { LocationFormComponent } from './features/current-weather/location-form/location-form.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
     CurrentWeatherComponent,
     ForecastComponent,
     PageNotFoundComponent,
+    LocationFormComponent,
   ],
   imports: [
     AppRoutingModule,
