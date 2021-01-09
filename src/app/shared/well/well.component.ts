@@ -6,14 +6,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   styleUrls: ['./well.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WellComponent implements OnInit {
-  @Input() title: string = '';
+export class WellComponent {
   @Input() canClose: boolean = true;
   @Output() closed: EventEmitter<void> = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
