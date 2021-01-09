@@ -10,7 +10,7 @@ import { ILocation } from "src/app/shared/models/location.interface";
   styleUrls: ['./current-weather.component.scss']
 })
 export class CurrentWeatherComponent implements OnInit {
-  public zipCodes$: Observable<string[]> = this._dataService.zipCodes$;
+  public locations$: Observable<ILocation[]> = this._dataService.locations$;
   public locations: ILocation[] = [{
     name: "Sacramento",
     conditions: "Sunny",

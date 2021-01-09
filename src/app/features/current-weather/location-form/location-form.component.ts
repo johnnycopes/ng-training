@@ -14,7 +14,7 @@ export class LocationFormComponent {
 
   public onSubmit(form: NgForm): void {
     const zipCode = form.value.zipCode;
-    this._dataService.addZipCode(zipCode);
+    this._dataService.addLocation(zipCode);
     form.resetForm();
   }
 }
