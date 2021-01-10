@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WellComponent } from "./well/well.component";
 import { ButtonComponent } from './button/button.component';
+import { ConditionsComponent } from './conditions/conditions.component';
+import { WellComponent } from "./well/well.component";
 
 @NgModule({
   imports: [
@@ -9,10 +10,12 @@ import { ButtonComponent } from './button/button.component';
   ],
   declarations: [
     ButtonComponent,
+    ConditionsComponent,
     WellComponent,
   ],
   exports: [
     ButtonComponent,
+    ConditionsComponent,
     WellComponent,
   ]
 })

@@ -22,8 +22,9 @@
     <p class="range">
       <em>High:</em> {{max}}°F | <em>Low:</em> {{min}}°F
     </p>
-    <img class="visual"
-      [src]="visualSrc"
-    />
+    <app-conditions class="visual"
+      [conditions]="conditions"
+      size="large"
+    ></app-conditions>
   </div>
 </app-well>

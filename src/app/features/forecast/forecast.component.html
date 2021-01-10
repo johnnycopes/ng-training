@@ -15,8 +15,16 @@
   <div container
     class="forecast"
   >
-    <p *ngFor="let day of forecast.days">
-      Day: {{day.conditions}} | High: {{day.max}} | Low: {{day.min}}
-    </p>
+    <div class="day"
+      *ngFor="let day of forecast.days"
+    >
+      <p>
+       <em>Day:</em> {{day.conditions}} |
+       <em>High:</em> {{day.max}}°F |
+       <em>Low:</em> {{day.min}}°F
+      </p>
+      <app-conditions [conditions]="day.conditions">
+      </app-conditions>
+    </div>
   </div>
 </app-well>

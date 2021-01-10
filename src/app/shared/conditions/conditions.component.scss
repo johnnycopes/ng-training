@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+}
+
+.visual {
+
+  &--small {
+    width: 96px;
+    height: 96px;
+  }
+
+  &--large {
+    width: 192px;
+    height: 192px;
+  }
+}
