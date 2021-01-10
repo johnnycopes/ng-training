@@ -52,6 +52,7 @@ export class ApiService {
       .pipe(
         map(data => {
           const days = data?.list?.map(day => ({
+            date: day?.dt * 1000 ?? 0,
             max: day?.temp?.max ?? "",
             min: day?.temp?.min ?? "",
             conditions: day?.weather?.[0]?.main ?? ""

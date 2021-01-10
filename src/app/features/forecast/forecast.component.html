@@ -18,11 +18,16 @@
     <div class="day"
       *ngFor="let day of forecast.days"
     >
-      <p>
-       <em>Day:</em> {{day.conditions}} |
-       <em>High:</em> {{day.max}}°F |
-       <em>Low:</em> {{day.min}}°F
-      </p>
+      <div>
+        <p>
+         <em>{{day.date | date: 'EEEE, MMM dd'}} </em>
+        </p>
+        <p>
+          {{day.conditions}} |
+          <em>High:</em> {{day.max}}°F |
+          <em>Low:</em> {{day.min}}°F
+        </p>
+      </div>
       <app-conditions [conditions]="day.conditions">
       </app-conditions>
     </div>

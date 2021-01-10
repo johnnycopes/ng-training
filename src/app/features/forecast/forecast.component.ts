@@ -14,6 +14,7 @@ export class ForecastComponent implements OnInit {
   public zipCode$: Observable<string> = of("");
   public forecast$: Observable<IForecast> = of({
     name: "",
+    date: 1568977200, // default to Jan 1, 1970
     days: []
   });
 
