@@ -1,19 +1,22 @@
-<app-well class="home-link"
-  [canClose]="false"
->
+<app-well class="home-link">
   <a container
     routerLink=""
   >
     Return to home page
   </a>
 </app-well>
-<app-well>
+<app-well *ngIf="forecast$ | async as forecast">
   <h3 top>
-    city name {{zipCode$ | async}}
+    {{forecast.name}}
+    <span class="zip">
+      ({{zipCode$ | async}})
+    </span>
   </h3>
   <div container
     class="forecast"
   >
-    forecast info goes here
+    <p *ngFor="let day of forecast.days">
+      Day: {{day.conditions}} | High: {{day.max}} | Low: {{day.min}}
+    </p>
   </div>
 </app-well>

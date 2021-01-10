@@ -2,14 +2,17 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { IForecast } from "src/app/shared/models/forecast.interface";
 import { ILocation } from "src/app/shared/models/location.interface";
-import { ICurrentWeather } from "src/app/shared/models/open-weather-api/current-weather.interface";
+import { ICurrentWeatherData } from "src/app/shared/models/open-weather-api/current-weather-data.interface";
+import { IForecastData } from "src/app/shared/models/open-weather-api/forecast-data.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private _baseUrl: string = "http://api.openweathermap.org/data/2.5/weather";
+  private _locationUrl: string = "http://api.openweathermap.org/data/2.5/weather";
+  private _forecastUrl: string = "http://api.openweathermap.org/data/2.5/forecast/daily";
   private _apiKey: string = "5a4b2d457ecbef9eb2a71e480b947604";
 
   constructor(private _httpService: HttpClient) { }
@@ -21,7 +24,7 @@ export class ApiService {
       units: "imperial"
     };
     return this._httpService
-      .get<ICurrentWeather>(this._baseUrl, { params })
+      .get<ICurrentWeatherData>(this._locationUrl, { params })
       .pipe(
         map(data => {
           return {
@@ -34,7 +37,30 @@ export class ApiService {
             zip: zipCode,
           };
         })
-      )
-    ;
+      );
+  }
+
+  public fetchForecast(zipCode: string): Observable<IForecast> {
+    const params = {
+      zip: zipCode,
+      appid: this._apiKey,
+      units: "imperial",
+      cnt: "5", // number of days
+    };
+    return this._httpService
+      .get<IForecastData>(this._forecastUrl, { params })
+      .pipe(
+        map(data => {
+          const days = data?.list?.map(day => ({
+            max: day?.temp?.max ?? "",
+            min: day?.temp?.min ?? "",
+            conditions: day?.weather?.[0]?.main ?? ""
+          })) ?? [];
+          return {
+            name: data?.city?.name ?? "",
+            days
+          };
+        })
+      );
   }
 }

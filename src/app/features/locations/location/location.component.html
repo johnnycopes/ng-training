@@ -1,4 +1,7 @@
-<app-well (closed)="deleted.emit()">
+<app-well
+  [canClose]="true"
+  (closed)="deleted.emit()"
+>
   <h3 top>
     <a [routerLink]="['/forecast', zipCode]">
       {{name}}
@@ -17,7 +20,7 @@
       <em>Temperature:</em> {{temperature}}°F
     </p>
     <p class="range">
-      <em>Max today:</em> {{max}}°F | <em>Min today:</em> {{min}}°F
+      <em>High:</em> {{max}}°F | <em>Low:</em> {{min}}°F
     </p>
     <img class="visual"
       [src]="visualSrc"

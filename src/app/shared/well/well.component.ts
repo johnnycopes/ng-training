@@ -7,6 +7,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WellComponent {
-  @Input() canClose: boolean = true;
+  @Input() canClose: boolean = false;
   @Output() closed: EventEmitter<void> = new EventEmitter();
 }

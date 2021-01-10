@@ -1,4 +1,6 @@
-export interface ICurrentWeather {
+import { IWeatherData } from "./weather-data.interface";
+
+export interface ICurrentWeatherData {
   name: string;
   main: {
     temp: string;
@@ -8,8 +10,5 @@ export interface ICurrentWeather {
   sys: {
     id: number;
   };
-  weather: {
-    main: string;
-    description: string;
-  }[];
+  weather: IWeatherData[];
 }
