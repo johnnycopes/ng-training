@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: '[app-button]',
@@ -7,18 +7,11 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit, ViewEnc
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent implements OnInit {
-
-  constructor() { }
-
+export class ButtonComponent {
   @HostBinding("class")
   public hostClass: string = "button";
 
   @Input()
   @HostBinding("class.button--disabled")
   public disabled: boolean = false;
-
-  ngOnInit(): void {
-  }
-
 }
