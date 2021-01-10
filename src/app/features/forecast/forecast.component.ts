@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { map, switchMap } from "rxjs/operators";
@@ -8,13 +8,14 @@ import { IForecast } from "src/app/shared/models/forecast.interface";
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.scss']
+  styleUrls: ['./forecast.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastComponent implements OnInit {
   public zipCode$: Observable<string> = of("");
   public forecast$: Observable<IForecast> = of({
     name: "",
-    date: 1568977200, // default to Jan 1, 1970
+    date: 0,
     days: []
   });
 
@@ -31,5 +32,4 @@ export class ForecastComponent implements OnInit {
       switchMap(zipCode => this._forecastService.fetchForecast(zipCode)),
     );
   }
-
 }
